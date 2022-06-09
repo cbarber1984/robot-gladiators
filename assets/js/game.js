@@ -72,19 +72,45 @@ var fight = function(enemyName) {
             } // end of while loop
         } // end of fight function
 
-    for(let i = 0; i < enemyNames.length; i++) {
+    var startGame = function() {
+        for(let i = 0; i < enemyNames.length; i++) {
         // if player is still alive, keep fighting
         if (playerHealth > 0) {
             // let player know what round they are in based upon index of enemy name + 1
-            window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
+            window.alert("Welcome to Robot Gladiators! Round " + (i + 1) + ". You will face " + enemyNames[i]);
             // pick new enemy from array
             pickedEnemyName = enemyNames[i]; // pick new enemy from array
             enemyHealth = 20 // -> reset enemy health to 50 before next iteration
             // pass enemy name into fight function
             fight(pickedEnemyName);
         }
-        else {
-            window.alert("While you fought bravely, you have lost your robot in battle! Game Over!");
-            break;
+        } // end of for loop
+        // after the llop ends, player is either out of health or enemies to fight, so run the endGame function
+        endGame();
+        // play again
+        // startGame();
+    }; // end of startGame function
+
+    // function to end the entire game
+    var endGame = function(){
+        // if player is still alive, player wins!
+        if(playerHealth > 0) {
+            window.alert("Great job! You've survived the game! You now have a score of " + playerMoney + ".");
         }
-    };
+        else {
+            window.alert("You've lost your robot in battle.")
+        }
+
+        //ask player if they'd like to play again
+        var playAgainConfirm = window.confirm("Would you like to play again?");
+
+        if (playAgainConfirm){
+            //restart the game
+            startGame();
+        } else {
+            window.alert("Thank you for playing Robot Gladiators! Come back soon!")
+        }
+    }; // end of endGame function
+
+    // start the game when the page loads
+    startGame();
