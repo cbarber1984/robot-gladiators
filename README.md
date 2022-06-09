@@ -16,3 +16,4 @@ The game is available [HERE](https://cbarber1984.github.io/robot-gladiators/)
 - Commenting intendended outcomes sequentially helps when writing code. It reminds me of the construction phrase "measure twice, cut once."
 - Using breaks in JavaScript to exit loops
 - Using switch statements to assist with control flow
+- Using Math.random and Math.floor methods to generate random numbers from a specific range
