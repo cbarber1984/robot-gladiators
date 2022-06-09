@@ -13,4 +13,9 @@ The game is available [HERE](https://cbarber1984.github.io/robot-gladiators/)
 
 ## What I Learned
 - The importance of considering edge cases when desigining user interactions
+<<<<<<< HEAD
 - Commenting intendended outcomes sequentially helps when writing code. It reminds me of the construction phrase "measure twice, cut once."
+=======
+- Commenting intendended outcomes sequentially helps when writing code. It reminds me of the construction phrase "measure twice, cut once."
+- Using breaks in JavaScript to exit loops
+>>>>>>> develop
