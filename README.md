@@ -18,3 +18,4 @@ The game is available [HERE](https://cbarber1984.github.io/robot-gladiators/)
 - Using switch statements to assist with control flow
 - Using Math.random and Math.floor methods to generate random numbers from a specific range
 - Creating methods for objects to keep like data coupled together as well as to make code more readable
+- Using the Web Storage API to store information in the browser

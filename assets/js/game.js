@@ -8,6 +8,7 @@ var randomNumber = function(min, max){
     return value;
 };
 
+
 // function to set name
 var getPlayerName = function(){
     var name = "";
@@ -196,24 +197,31 @@ var fight = function(enemy) {
 
     // function to end the entire game
     var endGame = function(){
-        // if player is still alive, player wins!
-        if(playerInfo.health > 0) {
-            window.alert("Great job! You've survived the game! You now have a score of " + playerInfo.money + ".");
-        }
-        else {
-            window.alert("You've lost your robot in battle.")
-        }
+            window.alert("The game has ended. Let's see how you did!");
+            var currentHighScore = localStorage.getItem("highScore");
+            if (currentHighScore === null) {
+                currentHighScore = 0;
+            } 
 
-        //ask player if they'd like to play again
-        var playAgainConfirm = window.confirm("Would you like to play again?");
+            if(playerInfo.money > currentHighScore) {
+                localStorage.setItem("highScore", playerInfo.money);
+                localStorage.setItem("name", playerInfo.name);
+                window.alert("Congratulations! " + playerInfo.name + " set a new high score of " + playerInfo.money);
+            }
+            else {
+                window.alert("Great work, but you did not beat the high score of " + currentHighScore + " Maybe next time!")
+            }
+            //ask player if they'd like to play again
+            var playAgainConfirm = window.confirm("Would you like to play again?");
+            if (playAgainConfirm){
+                //restart the game
+                startGame();
+            } else {
+                window.alert("Thank you for playing Robot Gladiators! Come back soon!");
+            }
 
-        if (playAgainConfirm){
-            //restart the game
-            startGame();
-        } else {
-            window.alert("Thank you for playing Robot Gladiators! Come back soon!")
-        }
-    }; // end of endGame function
+        } // end of endGame function
+    
 
     var shop = function(){
         // ask player what they would like to do
